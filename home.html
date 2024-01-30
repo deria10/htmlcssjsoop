@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahasiswa Info</title>
+    <style>
+        /* CSS styling */
+
+        /* Your existing CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .info-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        input, button {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #hasil-info {
+            margin-top: 20px;
+        }
+
+        /* Additional responsive styles */
+        @media screen and (max-width: 600px) {
+            /* Adjust styles for smaller screens */
+            .info-container {
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML content -->
+    <header>
+        <h1 style="margin: 0;">TUGAS OOP DERI CLASS MAHASISWA</h1>
+    </header>
+    <h1 style="margin: 0;">Mahasiswa Info</h1>
+    <div class="info-container">
+        <h2 style="color: #333;">Detail Mahasiswa</h2>
+
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" placeholder="Masukkan Nama">
+
+        <label for="nim">NIM:</label>
+        <input type="text" id="nim" placeholder="Masukkan NIM">
+
+        <button onclick="tampilkanInfo()">Tampilkan Informasi</button>
+
+        <div id="hasil-info"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // JavaScript code for responsiveness (optional, only if needed)
+        window.addEventListener('resize', function() {
+            // Adjustments can be made here if needed
+        });
+
+        // JavaScript code for showing student information
+        function tampilkanInfo() {
+            // Retrieve input values
+            var nama = document.getElementById('nama').value;
+            var nim = document.getElementById('nim').value;
+
+            // Create Mahasiswa object
+            var mahasiswa = new Mahasiswa(nama, nim);
+
+            // Display student information
+            var hasilInfo = document.getElementById('hasil-info');
+            hasilInfo.innerHTML = "<h2>Informasi Mahasiswa:</h2>" + mahasiswa.tampilkanInfo();
+        }
+
+        // Definition of Mahasiswa class
+        class Mahasiswa {
+            constructor(nama, nim) {
+                this.nama = nama;
+                this.nim = nim;
+            }
+
+            // Method to display student information
+            tampilkanInfo() {
+                return "Nama: " + this.nama + "<br>NIM : " + this.nim;
+            }
+        }
+    </script>
+</body>
+</html>
